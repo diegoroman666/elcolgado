@@ -8,14 +8,14 @@ interface Props {
 }
 
 const IMAGES = [
-  "/public/imagenes/dragon.png",
-  "/public/imagenes/dragon2.png",
-  "/public/imagenes/dragon3.png",
-  "/public/imagenes/dragon4.png",
-  "/public/imagenes/dragon5.png",
-  "/public/imagenes/dragon6.png",
-  "/public/imagenes/dragon7.png",
-  "/public/imagenes/dragon8.png",
+  "/src/assets/imagenes/dragon.png",
+  "/src/assets/imagenes/dragon2.png",
+  "/src/assets/imagenes/dragon3.png",
+  "/src/assets/imagenes/dragon4.png",
+  "/src/assets/imagenes/dragon5.png",
+  "/src/assets/imagenes/dragon6.png",
+  "/src/assets/imagenes/dragon7.png",
+  "/src/assets/imagenes/dragon8.png",
 ];
 
 export default function HangmanDrawing({
