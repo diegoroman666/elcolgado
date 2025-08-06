@@ -1,26 +1,22 @@
+import "../App.css";
+
 interface Props {
   onGuess: (letter: string) => void;
   guessed: string[];
   disabled: boolean;
 }
 
-export default function Keyboard({ onGuess, guessed, disabled }: Props) {
-  const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
+export default function Keyboard({ onGuess, guessed, disabled }: Props) {
   return (
-    <div style={{ marginTop: '20px' }}>
-      {letters.map(letter => (
+    <div className="keyboard">
+      {LETTERS.map((letter) => (
         <button
           key={letter}
-          onClick={() => onGuess(letter)}
-          disabled={guessed.includes(letter) || disabled}
-          style={{
-            margin: '5px',
-            padding: '10px',
-            fontSize: '1rem',
-            backgroundColor: guessed.includes(letter) ? "#ccc" : "#eee",
-            cursor: guessed.includes(letter) || disabled ? "not-allowed" : "pointer"
-          }}
+          onClick={() => onGuess(letter.toLowerCase())}
+          className="keyboard-button"
+          disabled={guessed.includes(letter.toLowerCase()) || disabled}
         >
           {letter}
         </button>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../App.css";
 
 interface Score {
   name: string;
@@ -10,22 +11,25 @@ export default function Ranking() {
   const [ranking, setRanking] = useState<Score[]>([]);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("ranking") || "[]");
-    setRanking(data.reverse().slice(0, 10));
+    const stored = localStorage.getItem("ranking");
+    if (stored) {
+      const parsed = JSON.parse(stored) as Score[];
+      setRanking(parsed.slice(-10).reverse()); // últimos 10 resultados
+    }
   }, []);
 
   if (ranking.length === 0) return null;
 
   return (
-    <div style={{ marginTop: "40px", textAlign: "left" }}>
-      <h2>🏆 Ranking</h2>
-      <ul style={{ listStyle: "none", paddingLeft: 0 }}>
-        {ranking.map((r, i) => (
-          <li key={i}>
-            <strong>{r.name}</strong> - {r.result.toUpperCase()} - <em>{r.date}</em>
-          </li>
-        ))}
-      </ul>
+    <div className="ranking-container fade-in">
+      <h2 className="ranking-title">🏆 Ranking</h2>
+      {ranking.map((score, index) => (
+        <div className="ranking-item" key={index}>
+          <span>{score.name}</span>
+          <span>{score.result === "win" ? "✅" : "❌"}</span>
+          <span style={{ fontSize: "0.7rem" }}>{score.date}</span>
+        </div>
+      ))}
     </div>
   );
 }

@@ -1,24 +1,99 @@
+// src/components/HangmanDrawing.tsx
+import { useMemo } from "react";
+
 interface Props {
   wrongGuesses: number;
+  isLoser: boolean;
+  image?: string;
 }
 
-export default function HangmanDrawing({ wrongGuesses }: Props) {
-  const parts = [
-    <circle key="head" cx="140" cy="50" r="10" stroke="black" fill="none" />,
-    <line key="body" x1="140" y1="60" x2="140" y2="100" stroke="black" />,
-    <line key="armL" x1="140" y1="70" x2="120" y2="90" stroke="black" />,
-    <line key="armR" x1="140" y1="70" x2="160" y2="90" stroke="black" />,
-    <line key="legL" x1="140" y1="100" x2="120" y2="130" stroke="black" />,
-    <line key="legR" x1="140" y1="100" x2="160" y2="130" stroke="black" />,
-  ];
+const IMAGES = [
+  "/src/assets/imagenes/dragon.png",
+  "/src/assets/imagenes/dragon2.png",
+  "/src/assets/imagenes/dragon3.png",
+  "/src/assets/imagenes/dragon4.png",
+  "/src/assets/imagenes/dragon5.png",
+  "/src/assets/imagenes/dragon6.png",
+  "/src/assets/imagenes/dragon7.png",
+  "/src/assets/imagenes/dragon8.png",
+];
+
+export default function HangmanDrawing({
+  wrongGuesses,
+  isLoser,
+  image,
+}: Props) {
+  const selectedImage = useMemo(() => {
+    if (image) return image;
+    const randomIndex = Math.floor(Math.random() * IMAGES.length);
+    return IMAGES[randomIndex];
+  }, [image]);
+
+  const rows = 3;
+  const cols = 3;
+  const totalParts = rows * cols;
+
+  const allParts = [] as React.ReactElement[];
+
+  for (let i = 0; i < totalParts; i++) {
+    const row = Math.floor(i / cols);
+    const col = i % cols;
+
+    const showPiece = isLoser || i < wrongGuesses;
+
+    allParts.push(
+      <div
+        key={i}
+        style={{
+          position: "absolute",
+          top: `${(row * 100) / rows}%`,
+          left: `${(col * 100) / cols}%`,
+          width: `${100 / cols}%`,
+          height: `${100 / rows}%`,
+          backgroundImage: `url(${selectedImage})`,
+          backgroundSize: `${cols * 100}% ${rows * 100}%`,
+          backgroundPosition: `${(col * 100) / (cols - 1)}% ${(row * 100) / (rows - 1)}%`,
+          backgroundRepeat: "no-repeat",
+          opacity: showPiece ? 1 : 0,
+          transition: "opacity 0.3s ease-in-out",
+        }}
+      />
+    );
+  }
 
   return (
-    <svg width="200" height="200" style={{ border: "1px solid gray" }}>
-      <line x1="20" y1="180" x2="180" y2="180" stroke="black" />
-      <line x1="60" y1="180" x2="60" y2="20" stroke="black" />
-      <line x1="60" y1="20" x2="140" y2="20" stroke="black" />
-      <line x1="140" y1="20" x2="140" y2="40" stroke="black" />
-      {parts.slice(0, wrongGuesses)}
-    </svg>
+    <div
+      className="position-relative mb-4 fire-container"
+      style={{
+        width: "min(90vw, 400px)",
+        height: "min(90vw, 400px)",
+        backgroundColor: "#111",
+        borderRadius: "12px",
+        overflow: "hidden",
+        boxShadow: "0 0 25px #222",
+        marginInline: "auto",
+      }}
+    >
+      {allParts}
+
+      {isLoser && (
+        <div className="fire-overlay">
+          <img
+            src="/src/assets/imagenes/fire_overlay.gif"
+            alt="fuego"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              pointerEvents: "none",
+              mixBlendMode: "screen",
+            }}
+          />
+        </div>
+      )}
+    </div>
   );
 }
