@@ -63,21 +63,29 @@ const PALABRAS = [
 ];
 
 
-const IMAGES = [
-  "/src/assets/imagenes/dragon.png",
-  "/src/assets/imagenes/dragon2.png",
-  "/src/assets/imagenes/dragon3.png",
-  "/src/assets/imagenes/dragon4.png",
+const images = [
+  "dragon.png",
+  "dragon2.png",
+  "dragon3.png",
+  "dragon4.png",
+  "dragon5.png",
+  "dragon6.png",
+  "dragon7.png",
+  "dragon8.png",
+  "dragon9.png",
 ];
+
+function getRandomImage() {
+  const file = images[Math.floor(Math.random() * images.length)];
+  return `/imagenes/${file}`;
+}
+
 
 function getRandomWord() {
   return PALABRAS[Math.floor(Math.random() * PALABRAS.length)];
 }
 
-function getRandomImage() {
-  const randomIndex = Math.floor(Math.random() * IMAGES.length);
-  return IMAGES[randomIndex];
-}
+
 
 function App() {
   const [word, setWord] = useState(getRandomWord);
@@ -140,7 +148,7 @@ function App() {
   );
 }
 
-export default App;
+
 
 interface Score {
   name: string;
@@ -153,3 +161,7 @@ function saveScore(name: string, result: "win" | "lose") {
   const prev = JSON.parse(localStorage.getItem("ranking") || "[]");
   localStorage.setItem("ranking", JSON.stringify([...prev, score]));
 }
+
+
+
+export default App;
