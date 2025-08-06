@@ -8,8 +8,8 @@ interface Props {
 }
 
 const IMAGES = [
-  "/assets/imagenes/dragon.png",
-  "/assets/imagenes/dragon2.png",
+  "/public/imagenes/dragon.png",
+  "/public/imagenes/dragon2.png",
   "/assets/imagenes/dragon3.png",
   "/assets/imagenes/dragon4.png",
   "/assets/imagenes/dragon5.png",
