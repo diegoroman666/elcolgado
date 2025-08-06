@@ -85,6 +85,13 @@ const images = [
   "dragonegipto19.png",
   "dragonchino20.png",
   "dragonchino21.png",
+  "dragonwar22.png",
+  "dragontormenta23.png",
+  "dragonlava24.png",
+  "dragonlava25.png",
+  "dragonlava26.png",
+  "dragonwar27.png",
+  "dragonwar28.png",
 ];
 
 function getRandomImage() {
@@ -93,10 +100,11 @@ function getRandomImage() {
 }
 
 
+// Reemplaza la función getRandomWord() así en App.tsx
 function getRandomWord() {
-  return PALABRAS[Math.floor(Math.random() * PALABRAS.length)];
+  const filtered = PALABRAS.filter(p => /^[a-z]+$/.test(p)); // Solo letras minúsculas sin símbolos
+  return filtered[Math.floor(Math.random() * filtered.length)];
 }
-
 
 
 function App() {
