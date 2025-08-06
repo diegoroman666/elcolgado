@@ -54,6 +54,14 @@ h1 {
   100% { opacity: 1; transform: scale(1.02); }
 }
 
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
 .keyboard-button {
   background-color: #222;
   color: #fff;
@@ -64,6 +72,11 @@ h1 {
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .keyboard-button:hover:not(:disabled) {
@@ -93,6 +106,7 @@ h1 {
   max-width: 500px;
   margin-inline: auto;
   color: #fff;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 .ranking-title {
@@ -108,17 +122,41 @@ h1 {
   padding: 0.5rem;
   border-bottom: 1px solid #444;
   font-family: monospace;
+  transition: background 0.3s ease;
+}
+
+.ranking-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
+}
+
+.attempt-counter {
+  font-size: 1rem;
+  color: #ffcc00;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #ffcc00;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ffcc00aa;
+  text-align: center;
+  max-width: 200px;
 }
 
 @media screen and (max-width: 600px) {
   .keyboard-button {
     padding: 0.5rem;
     font-size: 0.85rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
   h1 {
     font-size: 1.2rem;
   }
   .ranking-container {
     padding: 0.5rem;
+  }
+  .attempt-counter {
+    font-size: 0.85rem;
   }
 }

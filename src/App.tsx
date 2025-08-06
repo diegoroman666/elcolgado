@@ -14,54 +14,54 @@ import './App.css';
 
 
 const PALABRAS = [
-  // Geología
-  "roca", "mineral", "cristal", "magma", "lava", "volcan", "terremoto", "placa",
-  "tectonica", "sedimento", "erosion", "meteorizacion", "glaciar", "falla",
-  "cuarzo", "granito", "basalto", "caliza", "arenisca", "marmol", "estrato",
-  "fosil", "geologia", "sismologia", "paleontologia", "orogenia", "manto",
-  "nucleo", "corteza", "gema", "diamante", "esmeralda", "zafiro", "rubi",
-  "obsidiana", "pumita", "estalactita", "estatagmia", "caverna", "geiser",
-  "desierto", "valle", "montaña", "cordillera", "meseta", "canyon", "duna",
-  "subduccion", "rift", "metamorfica", "ignea", "sedimentaria", "carbon",
-  "petroleo", "gas", "mineralogia", "geofisica", "hidrogeologia", "geomorfologia",
-
-  // Astronomía
-  "estrella", "planeta", "galaxia", "universo", "cosmos", "nebulosa", "cometa",
-  "asteroide", "luna", "sol", "orbita", "gravedad", "telescopio", "espacio",
-  "astronauta", "cohete", "satelite", "constelacion", "zodiaco", "viaje",
-  "interestelar", "agujero", "negro", "supernova", "quasar", "pulsar", "bigbang",
-  "meteoro", "via", "lactea", "andromeda", "jupiter", "marte", "venus", "tierra",
-  "saturno", "urano", "neptuno", "pluton", "mercurio", "eclipse", "aurora",
-  "boreal", "extraterrestre", "ovni", "cosmologia", "astrofisica", "exoplaneta",
-  "cinturon", "cinturon-de-asteroides", "cinturon-de-kuiper", "nube-de-oort", "sistemasolar", "observatorio", "estrellafugaz",
-
-  // Mitología Griega
-  "zeus", "hera", "poseidon", "hades", "atenea", "apolo", "artemisa", "afrodita",
-  "ares", "hefesto", "hermes", "demeter", "dionisio", "perseo", "heracles",
-  "medusa", "minotauro", "sirena", "centauro", "quimera", "hidra", "cerbero",
-  "olimpo", "tartaro", "elysium", "troya", "odisea", "iliada", "esparta",
-  "atenas", "mito", "leyenda", "oraculo", "troyano", "aquiles", "hector",
-  "helenademil", "ulises", "ciclope", "pegaso", "grifo", "esfinge", "titanes",
-  "cronos", "gaia", "urano", "prometeo", "pandora", "narciso", "eco", "icaros",
-  "ariadna", "teseo", "laberinto", "caronte", "estigia", "percefone", "demigod",
-  "hero", "tragedia", "comedia", "teatro", "filosofia", "socrates", "platon",
-  "aristoteles", "grecia", "antigua", "orfeo", "euridice", "satyro", "ninfa",
-
-  // Dragones e Historias de Dragones
-  "dragon", "draco", "serpiente", "alado", "escamas", "fuego", "hielo", "garra",
-  "cola", "vuelo", "tesoro", "cueva", "montaña", "guerrero", "caballero",
-  "princesa", "reino", "leyenda", "mito", "bestia", "guardian", "ancestro",
-  "sabio", "antiguo", "magia", "hechizo", "aliento", "ruina", "desolacion",
-  "protector", "destructor", "nido", "huevo", "caza", "matadragones", "smaug",
-  "falkor", "saphira", "drogon", "viserion", "rhaegal", "tiamat", "bahamut",
-  "wyrm", "wyvern", "lindwurm", "cocatriz", "basilisco", "draconiano", "escamado",
-  "rugido", "alas", "cuernos", "espada", "armadura", "aventura", "epico",
-  "fantasia", "reino-fantasia", "castillo", "bosque", "mistico", "criatura",
-  "mito-dragon", "cultura", "oriental", "occidental", "simbolo", "poder",
-  "sabiduria", "codicia", "despertar", "dormido", "desafio", "profecia",
-  "dragon-chino", "dragon-europeo", "dragon-japones", "dragon-coreano", "dragon-vietnamita"
+  "trono", "rey", "reina", "duque", "duquesa", "conde", "condesa", "baron", "baronesa",
+  "noble", "heraldo", "vasallo", "sierpe", "reino", "imperio", "dinastia", "castillo", "fortaleza",
+  "muralla", "torre", "puente", "mazmorra", "carcel", "templo", "monasterio", "abadia", "catedral",
+  "cruzada", "conquista", "asedio", "guarnicion", "bastion", "refugio", "campamento", "catapulta",
+  "ariete", "torreon", "muralla", "trincheras", "fosos", "estandarte", "escudo", "espada", "lanza",
+  "arco", "flecha", "ballesta", "yelmo", "armadura", "coraza", "grebas", "guantelete", "escudero",
+  "caballero", "templario", "paladin", "guerrero", "soldado", "infanteria", "caballeria", "armero",
+  "capitan", "comandante", "general", "sargento", "vigilante", "guardian", "escolta", "tropa",
+  "aliado", "enemigo", "traidor", "espia", "asesino", "ladron", "vagabundo", "forajido", "bandido",
+  "mercenario", "cazador", "explorador", "rastreador", "jinete", "arquero", "bardo", "juglar",
+  "druida", "chaman", "hechicero", "brujo", "maga", "oraculo", "vidente", "sabio", "anciano",
+  "alquimista", "nigromante", "conjurador", "invocador", "mago", "encantador", "profeta", "ilusionista",
+  "mentalista", "ocultista", "clero", "sacerdote", "monje", "devoto", "pregonero", "reyerta", "batalla",
+  "guerra", "paz", "alianza", "traicion", "juramento", "promesa", "rescate", "venganza", "maldicion",
+  "bendicion", "pacto", "acuerdo", "desafio", "rival", "gloria", "honor", "valentia", "coraje",
+  "temor", "esperanza", "destino", "camino", "viaje", "mision", "busqueda", "legado", "herencia",
+  "memoria", "cronica", "leyenda", "mito", "relato", "cuento", "saga", "epopeya", "profecia",
+  "vision", "sueño", "pesadilla", "realidad", "ilusion", "misterio", "secreto", "clave", "pergamino",
+  "manuscrito", "mapa", "tesoro", "caverna", "cueva", "abismo", "laberinto", "pantano", "bosque",
+  "selva", "desierto", "oasis", "isla", "montaña", "valle", "rio", "laguna", "volcan", "crater",
+  "templo", "ruina", "tormenta", "huracan", "nube", "lluvia", "nieve", "granizo", "relampago", "rayo",
+  "trueno", "aurora", "niebla", "oscuridad", "sombra", "luz", "fuego", "hielo", "tierra", "agua",
+  "aire", "viento", "ceniza", "piedra", "roca", "mineral", "cristal", "gema", "rubí", "zafiro",
+  "esmeralda", "diamante", "cuarzo", "obsidiana", "jade", "oro", "plata", "bronce", "hierro", "acero",
+  "mitril", "adamantita", "oricalco", "dragón", "draco", "wyrm", "wyvern", "basilisco", "grifon",
+  "fénix", "quimera", "hidra", "sirena", "triton", "centauro", "minotauro", "gigante", "ogro",
+  "troll", "goblin", "orc", "elfo", "enano", "gnomo", "hobbit", "hada", "duende", "espiritu",
+  "fantasma", "espectro", "demonio", "angel", "deidad", "dios", "diosa", "titán", "cronos", "zeus",
+  "hades", "poseidon", "hermes", "apolo", "ares", "atenea", "hera", "dionisio", "demeter", "hestia",
+  "gaia", "urano", "reencarnacion", "infierno", "paraiso", "tartaro", "eliseo", "valhala", "asgard",
+  "midgard", "niflheim", "yggdrasil", "odin", "thor", "loki", "freyja", "balder", "fenrir", "jormungandr",
+  "surtur", "hel", "ragnarok", "nirvana", "karma", "samurai", "ronin", "shogun", "ninja", "katana",
+  "dojo", "templo", "monje", "sabio", "sensei", "mantra", "zen", "yin", "yang", "talisman", "amuleto",
+  "reliquia", "objeto", "artefacto", "runas", "sello", "insignia", "estandarte", "emblema", "sigilo",
+  "fuerza", "poder", "energia", "aura", "chispa", "voluntad", "alma", "espiritu", "mente", "cuerpo",
+  "trance", "consciencia", "sangre", "latido", "pulso", "eco", "resonancia", "piedralunar", "orbe",
+  "cetro", "vara", "baston", "capa", "tunica", "anillo", "collar", "corona", "reliquia", "medallon",
+  "guante", "botas", "espolon", "cinturon", "fajin", "bolsa", "mochila", "carroza", "carreta",
+  "caravana", "barco", "navio", "velero", "galera", "tierra", "dragoluz", "luna",
+  "escamador", "altavista", "forjador", "cielo", "llama", "colmillo", "colmeneon",
+  "tormentudo", "brumazul", "tempestad", "oscuro", "dormilon", "vigia", "centinela", "ojo", "garras",
+  "colmillos", "alarido", "rugido", "nido", "cueva", "vigilante", "guardian", "fuegoazul", "magma",
+  "vapor", "brillo", "resplandor", "piedraruna", "luzclara", "hierro", "nieve", "nordico",
+  "templado", "oscuro", "abandonado", "sagrado", "maldito", "eterno", "antiguo", "olvidado", "silencioso",
+  "rojo", "azul", "verde", "negro", "blanco", "plateado", "dorado", "gris", "pardo", "ocre", "violeta",
+  "escarlata", "carmesí", "ámbar", "esmeralda", "marfil", "lila", "cielo", "bruma", "noche", "amanecer",
+  "ocaso", "crepusculo", "noche", "dia", "invierno", "verano", "primavera", "otoño"
 ];
-
 
 const images = [
   "dragon.png",
@@ -92,6 +92,8 @@ const images = [
   "dragonlava26.png",
   "dragonwar27.png",
   "dragonwar28.png",
+  "dragonlava29.png",
+  "dragontormenta30.png",
 ];
 
 function getRandomImage() {
@@ -167,9 +169,6 @@ function App() {
     </div>
   );
 }
-
-
-
 interface Score {
   name: string;
   date: string;
