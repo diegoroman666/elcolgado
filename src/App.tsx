@@ -73,6 +73,11 @@ const images = [
   "dragon7.png",
   "dragon8.png",
   "dragon9.png",
+  "dragon10.png",
+  "dragon11.png",
+  "dragon12.png",
+  "dragon13.png",
+  "dragon14.png",
 ];
 
 function getRandomImage() {
