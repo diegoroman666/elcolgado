@@ -1,17 +1,16 @@
-// src/App.tsx
 import { useEffect, useState, useMemo } from 'react';
 import WordDisplay from './components/WordDisplay';
 import Keyboard from './components/Keyboard';
 import HangmanDrawing from './components/HangmanDrawing';
 import FinalMessage from './components/FinalMessage';
 import Ranking from './components/Ranking';
+import MusicPlayer from "./components/MusicPlayer";
 
 import correctSound from './assets/correct.mp3';
 import wrongSound from './assets/wrong.mp3';
 import winSound from './assets/win.mp3';
 import loseSound from './assets/lose.mp3';
 import './App.css';
-
 
 const PALABRAS = [
   "trono", "rey", "reina", "duque", "duquesa", "conde", "condesa", "baron", "baronesa",
@@ -96,18 +95,16 @@ const images = [
   "dragontormenta30.png",
 ];
 
-function getRandomImage() {
-  const file = images[Math.floor(Math.random() * images.length)];
-  return `/imagenes/${file}`;
-}
-
-
 // Reemplaza la función getRandomWord() así en App.tsx
 function getRandomWord() {
   const filtered = PALABRAS.filter(p => /^[a-z]+$/.test(p)); // Solo letras minúsculas sin símbolos
   return filtered[Math.floor(Math.random() * filtered.length)];
 }
 
+function getRandomImage() {
+  const file = images[Math.floor(Math.random() * images.length)];
+  return `/imagenes/${file}`;
+}
 
 function App() {
   const [word, setWord] = useState(getRandomWord);
@@ -151,6 +148,11 @@ function App() {
     }
   }
 
+  const audio = new Audio("/media/lose.mp3");
+  audio.volume = 1.0; // 1.0 es el volumen máximo
+  audio.play();
+
+
   function resetGame() {
     setGuessed([]);
     setWord(getRandomWord());
@@ -160,6 +162,7 @@ function App() {
 
   return (
     <div className="app text-center text-white bg-dark min-vh-100 p-4">
+      <MusicPlayer />
       <h1 className="mb-4">🐉 EL DRAGÓN EN LLAMAS  🔥</h1>
       <HangmanDrawing wrongGuesses={wrongGuesses.length} isLoser={isLoser} image={image} />
       <WordDisplay word={word} guessedLetters={guessed} />
@@ -180,7 +183,5 @@ function saveScore(name: string, result: "win" | "lose") {
   const prev = JSON.parse(localStorage.getItem("ranking") || "[]");
   localStorage.setItem("ranking", JSON.stringify([...prev, score]));
 }
-
-
 
 export default App;
